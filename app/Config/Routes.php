@@ -39,6 +39,13 @@ $routes->get('/', 'Pages::home');
 $routes->get('/(:num)', 'Pages::home/$1');
 
 $routes->get('/admin', 'Admin::index');
+$routes->get('/admin/user', 'Admin::user');
+$routes->get('/admin/user/(:num)', 'Admin::user/$1');
+$routes->get('/admin/user/create', 'Admin::user_create');
+$routes->post('/admin/user/save', 'Admin::user_save');
+$routes->get('/admin/user/edit/(:num)', 'Admin::user_edit/$1');
+$routes->put('/admin/user/update', 'Admin::user_update');
+$routes->get('/admin/user/delete/(:num)', 'Admin::user_delete/$1');
 
 $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::register_cek');

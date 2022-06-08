@@ -40,22 +40,39 @@
                 <div class="sidebar-brand-text mx-3">Adikanime</div>
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Dashboard
-            </div>
-
             <?php if (session()->get('id')) : ?>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Dashboard
+                </div>
+
+                <?php if (session()->get('role') == 'admin') : ?>
+                    <!-- Nav Item -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admin-menu" aria-expanded="true" aria-controls="admin-menu">
+                            <i class="fas fa-fw fa-user-circle"></i>
+                            <span>Admin</span>
+                        </a>
+                        <div id="admin-menu" class="collapse" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Menu Admin:</h6>
+                                <a class="collapse-item" href="/admin/user">Users</a>
+                                <a class="collapse-item" href="/admin/setting">Settings</a>
+                            </div>
+                        </div>
+                    </li>
+                <?php endif; ?>
+
                 <!-- Nav Item -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#post-menu" aria-expanded="true" aria-controls="post-menu">
                         <i class="fas fa-fw fa-home"></i>
                         <span>Menu</span>
                     </a>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
+                    <div id="post-menu" class="collapse" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Menu Post:</h6>
                             <a class="collapse-item" href="/post/all">Index Post</a>
@@ -74,12 +91,12 @@
                     </a>
                 </li>
             <?php else : ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="/login">
                         <i class="fas fa-fw fa-sign-in-alt"></i>
                         <span>Login</span>
                     </a>
-                </li>
+                </li> -->
             <?php endif; ?>
 
             <!-- Divider -->

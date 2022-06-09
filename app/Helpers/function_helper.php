@@ -31,3 +31,9 @@ function printPagination($url, $page, $totalPage)
                 </ul>
             </nav>";
 }
+
+function queryUserById($id)
+{
+    $authModel = new \App\Models\Auth_Model();
+    return $authModel->where(['id' => $id])->first();
+}

@@ -23,6 +23,16 @@ class Is_login implements FilterInterface
         if ($data['active'] != '1') {
             return redirect()->to('/login');
         }
+
+        if ($data['id']) {
+            // Ambil data active dari DB
+            helper('function');
+            $user = queryUserById($data['id']);
+
+            if ($user['active'] != '1') {
+                return redirect()->to('/logout');
+            }
+        }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

@@ -14,10 +14,10 @@
             <form class="user" action="/login" method="post">
                 <?= csrf_field(); ?>
                 <div class="form-group">
-                    <input type="text" name="username" class="form-control form-control-user" placeholder="Username">
+                    <input type="text" name="username" class="form-control form-control-user" placeholder="Username" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
+                    <input type="password" name="password" class="form-control form-control-user" placeholder="Password" required>
                 </div>
                 <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
             </form>

@@ -38,7 +38,7 @@ class Admin_Model extends Model
 
     public function getAllUser($limit = 10, $offset = 0)
     {
-        $user = $this->findAll($limit, $offset);
+        $user = $this->orderBy('created_at', 'DESC')->findAll($limit, $offset);
         return $user;
     }
 

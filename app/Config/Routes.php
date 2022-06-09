@@ -58,6 +58,7 @@ $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::login_cek');
 $routes->get('/logout', 'Auth::logout');
 
+$routes->get('/search', 'Post::search');
 $routes->get('/post/all', 'Post::all');
 $routes->get('/post/all/(:num)', 'Post::all/$1');
 $routes->get('/post/create', 'Post::create');

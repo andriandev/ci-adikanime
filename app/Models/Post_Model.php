@@ -83,4 +83,21 @@ class Post_Model extends Model
         $data = $this->select('title, slug')->orderBy('created_at', 'DESC')->findAll($limit, $this->getOffset($page, $limit));
         return $data;
     }
+
+    public function searchPost($keyword = null, $limit, $offset)
+    {
+        if ($keyword !== null) {
+            $data = $this->like('title', $keyword)->select('title, slug')->orderBy('created_at', 'DESC')->findAll($limit, $offset);
+
+            if ($data) {
+                return $data;
+            }
+        }
+    }
+
+    public function getCountSearchPost($keyword)
+    {
+        $countData = $this->like('title', $keyword)->countAllResults();
+        return $countData;
+    }
 }

@@ -275,4 +275,27 @@ class Post extends BaseController
 
         return redirect()->to('/post/all');
     }
+
+    public function search()
+    {
+        $keyword = htmlspecialchars($this->request->getVar('q'));
+        $page = htmlspecialchars($this->request->getVar('p'));
+        if (empty($page) || !is_numeric($page)) {
+            $page = 1;
+        }
+        $limit = 10;
+        $offset = $this->postModel->getOffset($page, $limit);
+        $posts = $this->postModel->searchPost($keyword, $limit, $offset);
+        $totalPost = $this->postModel->getCountSearchPost($keyword);
+        $totalPage = $this->postModel->getPageCount($totalPost, $limit);
+        $url = '/search?q=' . $keyword . '&p=';
+
+        $data = [
+            'title' => 'Search ' . $keyword,
+            'posts' => $posts,
+            'paginate' => printPagination($url, $page, $totalPage)
+        ];
+
+        return view('post/search', $data);
+    }
 }

@@ -46,6 +46,8 @@ $routes->post('/admin/user/save', 'Admin::user_save');
 $routes->get('/admin/user/edit/(:num)', 'Admin::user_edit/$1');
 $routes->put('/admin/user/update', 'Admin::user_update');
 $routes->get('/admin/user/delete/(:num)', 'Admin::user_delete/$1');
+$routes->get('/admin/setting', 'Admin::setting');
+$routes->post('/admin/setting/cache', 'Admin::cache');
 
 $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::register_cek');

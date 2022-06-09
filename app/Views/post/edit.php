@@ -10,6 +10,9 @@
     <div class="col">
         <div class="card shadow mb-4">
             <div class="card-body">
+                <?php if (session()->getFlashdata('pesan')) : ?>
+                    <?= session()->getFlashdata('pesan'); ?>
+                <?php endif; ?>
                 <form action="/post/update" method="post">
                     <input type="hidden" name="_method" value="PUT">
                     <input type="hidden" name="id" value="<?= $post['id']; ?>">

@@ -10,16 +10,17 @@
     <div class="col">
         <div class="card shadow mb-4">
             <div class="card-body">
+                <?php if (session()->getFlashdata('pesan')) : ?>
+                    <?= session()->getFlashdata('pesan'); ?>
+                <?php endif; ?>
+                <ul class="list-inline">
+                    <li class="list-inline-item">Total page : <?= $totalPage; ?></li>
+                    <li class="list-inline-item">Total post : <?= $totalPost; ?></li>
+                    <li class="list-inline-item">Post publish : <?= $postPublish; ?></li>
+                    <li class="list-inline-item">Post private : <?= $postPrivate; ?></li>
+                    <li class="list-inline-item"><a class="btn btn-primary btn-sm" href="/post/create">Create Post</a></li>
+                </ul>
                 <div class="table-responsive text-nowrap">
-                    <?php if (session()->getFlashdata('pesan')) : ?>
-                        <?= session()->getFlashdata('pesan'); ?>
-                    <?php endif; ?>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">Total page : <?= $totalPage; ?></li>
-                        <li class="list-inline-item">Total post : <?= $totalPost; ?></li>
-                        <li class="list-inline-item">Post publish : <?= $postPublish; ?></li>
-                        <li class="list-inline-item">Post private : <?= $postPrivate; ?></li>
-                    </ul>
                     <table class="table table-bordered table-striped text-center">
                         <thead class="bg-primary text-white">
                             <tr>

@@ -15,6 +15,11 @@
                 <button class="btn btn-block btn-primary btnLinkDL" type="button" data-toggle="collapse" data-target="#linkDL">
                     Buka Link Download
                 </button>
+                <?php if ($post['id_user'] == session()->get('id')) : ?>
+                    <a href="/post/edit/<?= $post['slug']; ?>" class="btn btn-block btn-success">
+                        Edit Post
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

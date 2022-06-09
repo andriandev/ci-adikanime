@@ -128,11 +128,11 @@ class Post extends BaseController
 
             // Session setFlashdata
             $pesan = '<div class="alert alert-success text-center" role="alert">
-            Post Berhasil Ditambahkan.
+            Post <a href="/' . $slug . '" target="_blank">' . $title . '</a> Berhasil Ditambahkan.
             </div>';
             session()->setFlashdata('pesan', $pesan);
 
-            return redirect()->to('/post/all');
+            return redirect()->to('/post/edit/' . $slug);
         }
     }
 
@@ -234,8 +234,8 @@ class Post extends BaseController
             ]);
 
             // Session setFlashdata
-            $pesan = '<div class="alert alert-warning text-center" role="alert">
-            Post Berhasil Di Edit.
+            $pesan = '<div class="alert alert-success text-center" role="alert">
+            Post <a href="/' . $slug . '" target="_blank">' . $title . '</a> Berhasil Di Edit.
             </div>';
             session()->setFlashdata('pesan', $pesan);
 
@@ -243,7 +243,7 @@ class Post extends BaseController
             $cache = \Config\Services::cache();
             $cache->delete($post['slug']);
 
-            return redirect()->to('/post/all');
+            return redirect()->to('/post/edit/' . $slug);
         }
     }
 

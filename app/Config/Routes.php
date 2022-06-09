@@ -49,6 +49,9 @@ $routes->get('/admin/user/delete/(:num)', 'Admin::user_delete/$1');
 $routes->get('/admin/setting', 'Admin::setting');
 $routes->post('/admin/setting/cache', 'Admin::cache');
 
+$routes->get('/profile', 'User::profile');
+$routes->put('/profile/update', 'User::profile_update');
+
 $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::register_cek');
 $routes->get('/login', 'Auth::login');

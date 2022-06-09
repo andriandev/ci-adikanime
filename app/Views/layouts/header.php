@@ -66,6 +66,13 @@
                     </li>
                 <?php endif; ?>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+
                 <!-- Nav Item -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#post-menu" aria-expanded="true" aria-controls="post-menu">
